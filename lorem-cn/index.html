@@ -19,7 +19,7 @@
 				margin-right: 20px;
 			}
 		</style>
-		<script src="https://raw.github.com/webzhao/lorem-cn/master/build/lorem-cn.min.js"></script>
+		<script src="lorem-cn.min.js"></script>
 	</head>
 	<body>
 		<div class="title">
@@ -45,14 +45,14 @@
 						preview.innerHTML = lorem(length, {usePunc: usePunc});
 					}, 100);
 				}
-				lengthInput.addEventListener('change', function(e){
+				lengthInput.onchange = function(e){
 					length = lengthInput.value;
 					update();
-				}, false);
-				usePuncInput.addEventListener('change', function(e){
+				};
+				usePuncInput.onchange = function(e){
 					usePunc = usePuncInput.checked;
 					update();
-				}, false);
+				};
 
 				//init
 				update();
