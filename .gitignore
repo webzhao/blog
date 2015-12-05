@@ -1,6 +1,7 @@
 #compiled js
 build/*.js
 www/*.html
+www/access-log
 
 Thumbs.db
 .DS_Store
