@@ -1,0 +1,14 @@
+extends ./base.jade
+
+block vars
+    - title = '首页'
+
+block main
+    h1 文章列表
+    ul
+        each post in posts
+            li
+                h3
+                    a(href="/#{post.name}.html") #{post.title}
+                p 发表于 #{post.date}
+                p #{post.summary}

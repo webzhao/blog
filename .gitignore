@@ -1,8 +1,14 @@
+#compiled js
+build/*.js
+www/*.html
+
 Thumbs.db
 .DS_Store
 *.swp
 
 !.gitkeep
+node_modules
 
 .rbenv-version
 .rvmrc
+

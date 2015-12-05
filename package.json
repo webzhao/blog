@@ -1,0 +1,30 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "my blog.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "babel --stage 0 build/src --out-dir build -w",
+    "build": "node index.js build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webzhao/blog.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "webzhao@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webzhao/blog/issues"
+  },
+  "homepage": "https://github.com/webzhao/blog#readme",
+  "devDependencies": {
+    "babel-core": "^6.3.13",
+    "babel-polyfill": "^6.3.14",
+    "bluebird": "^3.0.6",
+    "jade": "^1.11.0",
+    "marked": "^0.3.5"
+  }
+}
