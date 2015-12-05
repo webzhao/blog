@@ -1,10 +1,12 @@
 /**
  * reset
  */
+* {
+    box-sizing: border-box;
+}
 html, body, h1, h2, h3, h4, h5, h6, div, dl, dt, dd, ul, ol, li, p, blockquote, pre, hr, figure, table, caption, th, td, form, fieldset, legend, input, button, textarea {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 header, footer, section, article, aside, nav, hgroup, address, figure, figcaption, menu, details {
     display: block;
@@ -89,6 +91,7 @@ body {
 #nav ul {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 16px;
 }
 #nav ul li {
     display: inline-block;
@@ -102,9 +105,10 @@ body {
 }
 
 #main {
-    margin: 2em auto 2em auto;
+    margin: auto;
     max-width: 1000px;
     min-height: calc(100vh - 10em);
+    padding: 2em 16px;
 }
 
 #main a {
@@ -116,16 +120,6 @@ body {
     text-align: center;
     color: #666;
     line-height: 3;
-}
-
-@media (max-width: 1024px) {
-    body {
-        font-size: 14px;
-    }
-    #main {
-        padding-right: 1em;
-        padding-left: 1em;
-    }
 }
 
 
