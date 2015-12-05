@@ -10,6 +10,7 @@ var bluebird = require('bluebird');
 var fs       = bluebird.promisifyAll(require("fs"));
 var jade     = require('jade');
 var marked   = require('marked');
+var minify   = require('html-minifier').minify;
 
 /**
  * entry point of the build process
@@ -45,7 +46,7 @@ module.exports = async function run() {
 async function generateIndex(posts) {
     console.log('start index page')
     let html = jade.renderFile(`${TPL_DIR}/index.jade`, {posts});
-    await fs.writeFileAsync(`${WWW_DIR}/index.html`, html);
+    await writeHTMLFile(`${WWW_DIR}/index.html`, html);
     console.log('index page generated.');
 }
 
@@ -54,7 +55,7 @@ async function generateIndex(posts) {
  */
 async function generatePost(post) {
     let html = jade.renderFile(`${TPL_DIR}/post.jade`, post);
-    await fs.writeFileAsync(`${WWW_DIR}/${post.name}.html`, html);
+    await writeHTMLFile(`${WWW_DIR}/${post.name}.html`, html);
     console.log(`post "${post.name}" generated.`);
 }
 
@@ -63,8 +64,22 @@ async function generatePost(post) {
  */
 async function generatePage(page) {
     let html = jade.renderFile(`${TPL_DIR}/page.jade`, page);
-    await fs.writeFileAsync(`${WWW_DIR}/${page.name}.html`, html);
+    await writeHTMLFile(`${WWW_DIR}/${page.name}.html`, html);
     console.log(`page "${page.name}" generated.`);
+}
+
+/**
+ * write html file
+ */
+async function writeHTMLFile(file, html) {
+    await fs.writeFileAsync(file, minify(html, {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        removeOptionalTags: true
+    }));
 }
 
 /**
@@ -105,7 +120,7 @@ async function parseMdFile(file) {
         title: meta.title,
         tags: meta.tags,
         content: marked(content),
-        summary: content.substring(0, 100).replace(/[\r\n]+/g, '')
+        summary: marked(content.substring(0, 300).replace(/[\r\n]+/g, ''))
     }
 }
 

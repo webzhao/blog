@@ -1,8 +1,22 @@
 block vars
+
 doctype
 html
     head
         meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0;user-scalable=no")
         title #{title}
+        link(rel="stylesheet" href="/assets/css/main.css")
     body
-        block main
+        header
+            nav#nav
+                ul
+                    li(class=nav == 'index' ? 'active' : '')
+                        a(href="/") 博客
+                    li(class=nav == 'about' ? 'active' : '')
+                        a(href="/about.html") 关于
+
+        main#main
+            block main
+        footer#footer
+            p &copy; 2015 webzhao

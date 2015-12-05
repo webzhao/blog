@@ -1,7 +1,7 @@
-Title: 调试的艺术
+Title: [译] 调试的艺术
 Tags: 开发, 调试
 
-原文：[The art of debugging](https://remysharp.com/2015/10/14/the-art-of-debugging)
+原文：[The art of debugging](https://remysharp.com/2015/10/14/the-art-of-debugging)。
 
 本文是我在2015年阿姆斯特丹举办的 Fronteers 前端开发者大会上的演讲《调试的艺术》附带的文章。
 

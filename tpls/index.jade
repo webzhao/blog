@@ -2,13 +2,15 @@ extends ./base.jade
 
 block vars
     - title = '首页'
+    - nav = 'index'
 
 block main
-    h1 文章列表
-    ul
+    ul.post-list
         each post in posts
-            li
-                h3
+            li.yue
+                h2
                     a(href="/#{post.name}.html") #{post.title}
                 p 发表于 #{post.date}
-                p #{post.summary}
+                p !{post.summary}
+                p
+                    a(href="/#{post.name}.html") 继续阅读&raquo;
