@@ -29,6 +29,7 @@ module.exports = async function run() {
 
         //build pages
         files = await fs.readdirAsync(PAGE_DIR);
+        files = files.sort().reverse();
         let pages = await Promise.all(files.map(async file => await parsePage(file)));
         pages = pages.filter(page => !!page);
         await Promise.all(pages.map(async page => await generatePage(page)));
