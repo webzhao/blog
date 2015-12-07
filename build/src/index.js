@@ -20,6 +20,7 @@ module.exports = async function run() {
     try {
         //build posts
         let files = await fs.readdirAsync(POST_DIR);
+        files = files.sort().reverse();
         let posts = await Promise.all(files.map(async file => await parsePost(file)));
         posts = posts.filter(post => !!post);
         await Promise.all(posts.map(async post => await generatePost(post)));
