@@ -2,6 +2,7 @@
 build/*.js
 www/*.html
 www/access-log
+config.js
 
 Thumbs.db
 .DS_Store
