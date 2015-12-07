@@ -33,6 +33,9 @@ module.exports = async function run() {
         pages = pages.filter(page => !!page);
         await Promise.all(pages.map(async page => await generatePage(page)));
 
+        //build sitemap
+        await generateSitemap(posts, pages);
+
         console.log('done!');
     } catch (ex) {
         console.error(ex);
@@ -48,6 +51,16 @@ async function generateIndex(posts) {
     let html = jade.renderFile(`${TPL_DIR}/index.jade`, {posts});
     await writeHTMLFile(`${WWW_DIR}/index.html`, html);
     console.log('index page generated.');
+}
+
+/**
+ * generate sitemap
+ */
+async function generateSitemap(posts, pages) {
+    console.log('start sitemap')
+    let xml = jade.renderFile(`${TPL_DIR}/sitemap.jade`, {posts, pages});
+    await writeHTMLFile(`${WWW_DIR}/sitemap.xml`, xml, true);
+    console.log('sitemap generated.');
 }
 
 /**
@@ -71,15 +84,18 @@ async function generatePage(page) {
 /**
  * write html file
  */
-async function writeHTMLFile(file, html) {
-    await fs.writeFileAsync(file, minify(html, {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        removeOptionalTags: true
-    }));
+async function writeHTMLFile(file, html, pretty) {
+    if (!pretty) {
+        html = minify(html, {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeAttributeQuotes: true,
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            removeOptionalTags: true
+        });
+    }
+    await fs.writeFileAsync(file, html);
 }
 
 /**
