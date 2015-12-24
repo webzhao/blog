@@ -38,13 +38,15 @@ module.exports = async function run() {
         //build sitemap
         await generateSitemap(posts, pages);
 
+        //build rss
+        await generateRSS(posts);
+
         console.log('done!');
     } catch (ex) {
         console.error(ex);
     }
 
 };
-
 /**
  * generate index
  */
@@ -62,6 +64,16 @@ async function generateSitemap(posts, pages) {
     console.log('start sitemap')
     let xml = jade.renderFile(`${TPL_DIR}/sitemap.jade`, {posts, pages});
     await writeHTMLFile(`${WWW_DIR}/sitemap.xml`, xml, true);
+    console.log('sitemap generated.');
+}
+
+/**
+ * generate rss
+ */
+async function generateRSS(posts) {
+    console.log('start rss')
+    let xml = jade.renderFile(`${TPL_DIR}/rss.jade`, {posts});
+    await writeHTMLFile(`${WWW_DIR}/rss.xml`, xml, true);
     console.log('sitemap generated.');
 }
 

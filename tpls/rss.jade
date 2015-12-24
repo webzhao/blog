@@ -1,0 +1,16 @@
+doctype xml
+rss(xmlns:atom="http://www.w3.org/2005/Atom" version="2.0")
+    channel
+        title webzhao's blog
+        link https://webzhao.me
+        atom:link(href="https://webzhao.me/rss.xml" rel="self" type="application/rss+xml")
+        description 关注 Web 前端开发、移动 Web、HTML5 等。
+        language zh-cn
+        lastBuildDate #{new Date().toUTCString()}
+        each post in posts
+            item
+                title #{post.title}
+                link https://webzhao.me/#{post.name}.html
+                description <![CDATA[ #{post.summary} ]]>
+                pubDate #{new Date(post.date).toUTCString()}
+                guid https://webzhao.me/#{post.name}.html

@@ -1,8 +1,8 @@
 #compiled js
 build/*.js
 www/*.html
+www/*.xml
 www/access-log
-www/sitemap.xml
 config.js
 
 Thumbs.db
