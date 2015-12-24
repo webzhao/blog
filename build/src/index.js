@@ -103,7 +103,7 @@ async function writeHTMLFile(file, html, pretty) {
         html = minify(html, {
             removeComments: true,
             collapseWhitespace: true,
-            removeAttributeQuotes: true,
+            removeAttributeQuotes: false,
             removeScriptTypeAttributes: true,
             removeStyleLinkTypeAttributes: true,
             removeOptionalTags: true

@@ -11,6 +11,6 @@ rss(xmlns:atom="http://www.w3.org/2005/Atom" version="2.0")
             item
                 title #{post.title}
                 link https://webzhao.me/#{post.name}.html
-                description <![CDATA[ #{post.summary} ]]>
+                description <![CDATA[ !{post.summary} ]]>
                 pubDate #{new Date(post.date).toUTCString()}
                 guid https://webzhao.me/#{post.name}.html
