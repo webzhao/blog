@@ -3,5 +3,20 @@ extends ./base.jade
 block main
     article.yue
         h2 #{title}
-        p 发表于 #{date}
+        p 发表于 #{date}，所属分类：#{tags}
         div !{content}
+        //- disqus评论
+        #disqus_thread
+        script.
+            var disqus_config = function () {
+                this.page.url = 'https://webzhao.me/#{name}.html';
+                this.page.identifier = '#{name}';
+            };
+            (function() {
+                var d = document, s = d.createElement('script');
+                s.src = '//webzhaoblog.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        script(src="/assets/js/prism.js" async data-manual)
+

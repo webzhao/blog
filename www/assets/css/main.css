@@ -89,7 +89,7 @@ body {
     color: #fff;
 }
 #nav ul {
-    max-width: 1000px;
+    max-width: 42em;
     margin: 0 auto;
     padding: 0 16px;
 }
@@ -106,7 +106,7 @@ body {
 
 #main {
     margin: auto;
-    max-width: 1000px;
+    max-width: 42em;
     min-height: calc(100vh - 10em);
     padding: 2em 16px;
 }
@@ -134,7 +134,7 @@ body {
 .yue {
     font-family: "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
     font-weight: 400;
-    line-height: 1.62;
+    line-height: 1.75;
     color: #444443;
 }
 
@@ -299,6 +299,7 @@ body {
 }
 
 .yue li {
+    list-style: inherit;
     margin-bottom: 0.2em;
 }
 
@@ -402,6 +403,20 @@ body {
     background: none;
 }
 
+.fluid-width-video-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 1em 0;
+}
+.fluid-width-video-wrapper iframe,
+.fluid-width-video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 @media (min-width: 1100px) {
     .yue blockquote {
         margin-left: -24px;
@@ -412,4 +427,139 @@ body {
     .yue blockquote blockquote {
         margin-left: 0;
     }
+}
+
+/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+bash+ruby+css-extras+diff+git+go+jade+less+markdown+nginx+php+python+jsx+sass+scss+swift+typescript+vim+yaml */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #a67f59;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
 }

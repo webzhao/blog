@@ -10,7 +10,7 @@ block main
             li.yue
                 h2
                     a(href="/#{post.name}.html") #{post.title}
-                p 发表于 #{post.date}
+                p 发表于 #{post.date}，所属分类：#{post.tags}
                 p !{post.summary}
                 p
                     a(href="/#{post.name}.html") 继续阅读&raquo;
