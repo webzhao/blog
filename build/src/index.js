@@ -11,6 +11,7 @@ var fs       = bluebird.promisifyAll(require("fs"));
 var jade     = require('jade');
 var marked   = require('marked');
 var minify   = require('html-minifier').minify;
+global.uri   = require('./fingerprint.js');
 
 /**
  * entry point of the build process

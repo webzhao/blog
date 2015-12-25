@@ -19,5 +19,5 @@ block scripts
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
         })();
-    script(src="/assets/js/prism.js" async data-manual)
+    script(src="#{uri('/assets/js/prism.js')}" async data-manual)
 
