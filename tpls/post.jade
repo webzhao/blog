@@ -7,16 +7,17 @@ block main
         div !{content}
         //- disqus评论
         #disqus_thread
-        script.
-            var disqus_config = function () {
-                this.page.url = 'https://webzhao.me/#{name}.html';
-                this.page.identifier = '#{name}';
-            };
-            (function() {
-                var d = document, s = d.createElement('script');
-                s.src = '//webzhaoblog.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        script(src="/assets/js/prism.js" async data-manual)
+block scripts
+    script.
+        var disqus_config = function () {
+            this.page.url = 'https://webzhao.me/#{name}.html';
+            this.page.identifier = '#{name}';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//webzhaoblog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    script(src="/assets/js/prism.js" async data-manual)
 
