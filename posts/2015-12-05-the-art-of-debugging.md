@@ -7,7 +7,7 @@ Tags: 开发, 调试
 
 如果你嫌本文太长懒得去看，这是简短版本：学习每个可用的工具，当你需要时去使用它；享受调 bug 的乐趣 —— 它显然比砸键盘或者花半年时间一直在实现一个功能要更有意思。
 
-![Art of Debugging](https://p0.ssl.qhimg.com/t017fa6f4b2188e8e36.jpg)
+![Art of Debugging](https://p.ssl.qhimg.com/t017fa6f4b2188e8e36.jpg)
 
 ## 相关资源
 
@@ -24,7 +24,7 @@ Tags: 开发, 调试
 
 **Bug。**
 
-<img src="https://p0.ssl.qhimg.com/t016450eac76c7b97db.gif" width="530" height="296" alt="">
+<img src="https://p.ssl.qhimg.com/t016450eac76c7b97db.gif" width="530" height="296" alt="">
 
 ## 然而...
 
@@ -82,7 +82,7 @@ function magicNumber(a, b) {
 
 下图是我在每次关于调试的讨论会上都会打开的页面，你看，连 Wikipedia 都说调试是一门艺术！
 
-[![debugging is an art](https://p0.ssl.qhimg.com/t018e308fce2d6f64d9.gif)](https://en.wikipedia.org/wiki/Software_bug#Debugging)
+[![debugging is an art](https://p.ssl.qhimg.com/t018e308fce2d6f64d9.gif)](https://en.wikipedia.org/wiki/Software_bug#Debugging)
 
 我把调试分为三步：
 
@@ -229,11 +229,11 @@ Chrome 开发者工具对撤销操作的支持是非常好的。我可以对 CSS
 
 第二个问题是关于我的产品 [confwall.com](https://confwall.com) 的：它在加载 tab 时非常慢。如果你仔细观看下面的动画（0.5倍速度播放），你可以发现这个问题：
 
-![Slow tabs loading](https://p0.ssl.qhimg.com/t014150f17b26e0b56d.gif)
+![Slow tabs loading](https://p.ssl.qhimg.com/t014150f17b26e0b56d.gif)
 
 这也是我使用“摄像头”图标录制的 Timeline 截屏：
 
-![Screenshot](https://p0.ssl.qhimg.com/t0117cfd6036d773903.png)
+![Screenshot](https://p.ssl.qhimg.com/t0117cfd6036d773903.png)
 
 根据截屏，我可以进一步研究 Tab 渲染时的代码，找出那些阻塞的地方。
 
@@ -247,7 +247,7 @@ Chrome 开发者工具对撤销操作的支持是非常好的。我可以对 CSS
 
 查看网络的瀑布图很有用，但是我发现查看请求的 header 和复制原始响应内容也非常有用。
 
-![Copy response](https://p0.ssl.qhimg.com/t01efbd874c35074998.jpg)
+![Copy response](https://p.ssl.qhimg.com/t01efbd874c35074998.jpg)
 
 而且，我发现调试服务端返回不正确的 bug 时（比如返回的了 HTML 而不是 JSON），我可以进行修改服务端代码，重启服务器等操作来尝试修复 bug。在浏览器端，我并不需要每次刷新浏览器并操作到合适的状态来重新发送请求：只需要简单地右键点击那个请求，选择“Replay XHR”即可。这一操作不仅会重新发送请求，也会重新执行这个 XHR 的回调。
 
@@ -272,13 +272,13 @@ Chrome 开发者工具对撤销操作的支持是非常好的。我可以对 CSS
 
 在这个过程中，我们一直重复做的是：确立内存占用的基线（开发操作页面前的内存占用），然后进行页面操作。如果某个操作后内存有显著提高且不能被回收，那就存在内存泄漏。接下来要做的就是进行优化了。
 
-![Memory leaks](https://p0.ssl.qhimg.com/t01a4fc01214225dd35.jpg)
+![Memory leaks](https://p.ssl.qhimg.com/t01a4fc01214225dd35.jpg)
 
 调优可以分为两步。首先，在操作页面前以及操作页面后分别捕捉 heap dump（开发者工具的 Profiles 面板中）。我可能会进行两次页面操作，但是第二次开始前要强制进行内存回收。然后，将两个 heap dump 进行对比。在开发者工具中选中第二个 heap dump，把它从“summary”模式切换为“comparison”，并按照“delta（增量）”进行排序。现在开始寻找被标记成红色的项目，它们是内存中不能被回收的部分。
 
 这将会（但愿如此）引导你发现哪些内存正在泄漏：通常是一些 DOM 节点以及一些指向这些节点的 JavaScript 引用。令人沮丧的是，这些通常是某个 JavaScript 脚本库引起的。因此，知道一些你使用的脚本库的工作原理会很有帮助。
 
-![Memory comparison](https://p0.ssl.qhimg.com/t0183c20154e0431803.png)
+![Memory comparison](https://p.ssl.qhimg.com/t0183c20154e0431803.png)
 
 ## 总结
 

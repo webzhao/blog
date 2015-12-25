@@ -3,7 +3,7 @@ extends ./base.jade
 block main
     article.yue
         h2 #{title}
-        p 发表于 #{date}，所属分类：#{tags}
+        p.meta 发表于 #{date}，所属分类：#{tags}
         div !{content}
         //- disqus评论
         #disqus_thread

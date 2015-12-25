@@ -82,6 +82,9 @@ body {
     font-size: 16px;
     line-height: 1.7;
 }
+.pull-right {
+    float: right;
+}
 
 #nav {
     line-height: 3;
@@ -102,6 +105,12 @@ body {
 #nav ul li a {
     display: block;
     padding: 0 1em;
+}
+#nav ul li .rss {
+    background: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjU2LjY5MyIgdmlld0JveD0iMCAwIDU2LjY5MyA1Ni42OTMiIHdpZHRoPSI1Ni42OTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTMuNDI4IDMxLjA4NWM2LjE5IDAgMTIuMDEgMi40MTggMTYuMzgyIDYuODE2IDQuMzggNC40IDYuNzkzIDEwLjI1NyA2Ljc5MyAxNi40OTNoOS41NGMwLTE4LjExMy0xNC42NzctMzIuODQ4LTMyLjcxNS0zMi44NDh2OS41NHptLjAxNS0xNi45MWMyMi4wNiAwIDQwLjAxIDE4LjA0NiA0MC4wMSA0MC4yM2g5LjU0YzAtMjcuNDQ1LTIyLjIzLTQ5Ljc3LTQ5LjU1LTQ5Ljc3djkuNTR6bTEzLjE5IDMzLjU2NmE2LjYwOCA2LjYwOCAwIDAgMS0xMy4yMTMgMCA2LjYwOCA2LjYwOCAwIDAgMSAxMy4yMTQgMHoiLz48L3N2Zz4=) no-repeat center center;
+    background-size: 18px;
+    text-indent: 100%;
+    overflow: hidden;
 }
 
 #main {
@@ -415,6 +424,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+}
+article .meta, .post-list .meta {
+    font-size: 87.5%;
+    color: #666;
 }
 
 @media (min-width: 1100px) {
