@@ -117,6 +117,9 @@ body {
     margin: auto;
     max-width: 42em;
     min-height: calc(100vh - 10em);
+}
+
+#main>article, #main .post-list {
     padding: 2em 16px;
 }
 
