@@ -151,7 +151,7 @@ async function parseMdFile(file) {
         title: meta.title,
         tags: meta.tags,
         content: marked(content),
-        summary: marked(content.substring(0, 300).replace(/[\r\n]+/g, '')),
+        summary: marked(content.split(/\n{3,}/)[0]),
         meta
     }
 }
