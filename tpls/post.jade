@@ -5,6 +5,10 @@ block main
         h2 #{title}
         p.meta 发表于 #{date}，所属分类：#{tags}
         div !{content}
+        script(async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+        ins.adsbygoogle(style="display:block" data-ad-client="ca-pub-8418855232316368" data-ad-slot="3637735692" data-ad-format="link")
+        script.
+            (adsbygoogle = window.adsbygoogle || []).push({});
         //- disqus评论
         #disqus_thread
 block scripts
